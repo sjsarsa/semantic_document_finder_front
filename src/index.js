@@ -28,10 +28,11 @@ const store = createStore(
     applyMiddleware(
       routerMiddleware(history),
       thunk,
-      logger,
+      logger
     ),
   ),
 )
+
 syncTranslationWithStore(store)
 store.dispatch(loadTranslations(translations))
 store.dispatch(setLocale('en'))

@@ -14,11 +14,11 @@ const routes = (
   <div className='App'>
     <NavBar/>
     <Switch>
-      <Route exact path="/" component={Main}/>
-      <Route path="/login" component={LoginPage}/>
+      <Route exact path={process.env.PUBLIC_URL + "/"} component={Main}/>
+      <Route path={process.env.PUBLIC_URL + "/login"} component={LoginPage}/>
       {/* Options need to be the same as navigation.compareDocuments in translations.js */}
-      <Route path="/(document-search|dokumenttihaku)" component={DocumentSearchPage}/>
-      <Route path="/(compare-documents|vertaa-dokumentteja)" component={RateSimilarityPage}/>
+      <Route path={process.env.PUBLIC_URL + "/(document-search|dokumenttihaku)"} component={DocumentSearchPage}/>
+      <Route path={process.env.PUBLIC_URL + "/(compare-documents|vertaa-dokumentteja)"} component={RateSimilarityPage}/>
       <Route component={NotFound}/>
     </Switch>
     <Footer/>

@@ -39,15 +39,19 @@ class NavBar extends React.Component {
             <Typography className="flex" variant="title" color="inherit">
               <Translate value="navBar.title"/>
             </Typography>
-            <Link to="/" className="link-button"><Button color="inherit"><Translate value="home"/></Button></Link>
-            <Link to={"/" + I18n.t('navigation.documentSearch')} className="link-button"><Button color="inherit">{I18n.t('navBar.documentSearch')}</Button></Link>
+            <Link to={process.env.PUBLIC_URL + "/"} className="link-button">
+              <Button color="inherit"><Translate value="home"/></Button>
+            </Link>
+            <Link to={process.env.PUBLIC_URL + "/" + I18n.t('navigation.documentSearch')} className="link-button">
+              <Button color="inherit">{I18n.t('navBar.documentSearch')}</Button>
+            </Link>
             {this.props.loggedUser ?
-              [<Link key="compareDocumentsLink" to={'/' + I18n.t('navigation.compareDocuments')} className="link-button">
+              [<Link key="compareDocumentsLink" to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.compareDocuments')} className="link-button">
                 <Button color="inherit"><Translate value="document.compare"/></Button>
               </Link>,
               <LogoutButton key="logoutButton"/>]
               :
-              <Link to="/login" className={'link-button'}>
+              <Link to={process.env.PUBLIC_URL + "/login"} className={'link-button'}>
                 <Button color="inherit"><Translate value="login"/></Button>
               </Link>}
 

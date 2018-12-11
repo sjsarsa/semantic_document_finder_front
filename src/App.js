@@ -5,7 +5,7 @@ import routes from './Routes'
 
 const App = ({ history }) => {
   return (
-    <ConnectedRouter history={history}>
+    <ConnectedRouter basepath={process.env.PUBLIC_URL} history={history}>
       { routes }
     </ConnectedRouter>
   )
