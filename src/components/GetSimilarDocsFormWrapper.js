@@ -17,7 +17,7 @@ function mapDispatchToProps (dispatch) {
 class GetSimilarDocsFormWrapper extends Component {
 
   state = {
-    showForm: false,
+    showForm: true,
   }
 
   toggleShowForm = () => {

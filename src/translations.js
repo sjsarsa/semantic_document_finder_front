@@ -88,7 +88,7 @@ export default {
     },
     page: {
       documentSearch: {
-        title: 'Document search using various AI methods'
+        title: 'Search documents by inserting text or keywords as document content'
       },
       login: {
         title: 'Log in by entering your username and password',
