@@ -19,14 +19,15 @@ function mapStateToProps (state) {
     initialValues: {title: state.document.queryDocument.title, content: state.document.queryDocument.content,
                     algorithm: state.query.algorithm},
     enableReinitialize: true,
-    getExtractedTextInProgress: state.document.getExtractedTextInProgress
+    getExtractedTextInProgress: state.document.getExtractedTextInProgress,
+    resultSize: state.query.resultSize
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    getSimilarDocsByQuery: (data) => {
-      postDocumentToDocApi(data, data.algorithm, dispatch)
+    getSimilarDocsByQuery: (data, n) => {
+      postDocumentToDocApi(data, data.algorithm, n, dispatch)
       dispatch(setQueryDocument(data))
       dispatch(setSimilarityAlgorithm(data.algorithm))
     }
@@ -38,7 +39,7 @@ class GetSimilarDocsForm extends React.Component {
   contentRequired = value => value == null ? 'Content is required' : undefined
 
   onSubmit = (data) => {
-    this.props.getSimilarDocsByQuery(data, data.algorithm)
+    this.props.getSimilarDocsByQuery(data, this.props.resultSize)
     this.props.toggleShowForm()
   }
 

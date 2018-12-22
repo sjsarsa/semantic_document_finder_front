@@ -16,13 +16,14 @@ import {
 } from '@material-ui/core'
 import { SettingsApplications } from '@material-ui/icons'
 import { I18n, Translate } from 'react-redux-i18n'
-import { setFilters, setShow, setSimilarityAlgorithm } from '../actions/queryActions'
+import { setFilters, setResultSize, setShow, setSimilarityAlgorithm } from '../actions/queryActions'
 
 function mapStateToProps (state) {
   return {
     similarityAlgorithm: state.query.algorithm,
     filters: state.query.filters,
-    show: state.query.show
+    show: state.query.show,
+    resultSize: state.query.resultSize
   }
 }
 
@@ -30,7 +31,8 @@ function mapDispatchToProps (dispatch) {
   return {
     setSimilarityAlgorithm: algorithm => dispatch(setSimilarityAlgorithm(algorithm)),
     setFilters: filters => dispatch(setFilters(filters)),
-    setShow: show => dispatch(setShow(show))
+    setShow: show => dispatch(setShow(show)),
+    setResultSize: resultSize => dispatch(setResultSize(resultSize))
   }
 }
 
@@ -39,7 +41,8 @@ class QueryResultOptionDialog extends React.Component {
     open: false,
     algorithm: this.props.similarityAlgorithm,
     filters: this.props.filters,
-    show: this.props.show
+    show: this.props.show,
+    resultSize: this.props.resultSize
   }
 
   handleConfirm = () => {
@@ -47,6 +50,7 @@ class QueryResultOptionDialog extends React.Component {
     this.props.setSimilarityAlgorithm(this.state.algorithm)
     this.props.setFilters(this.state.filters)
     this.props.setShow(this.state.show)
+    this.props.setResultSize(this.state.resultSize)
   }
 
   renderAlgorithmSelect = () => {
@@ -56,16 +60,27 @@ class QueryResultOptionDialog extends React.Component {
           {I18n.t('form.documentSearch.algorithm.label')}
         </InputLabel>
         <NativeSelect
+          style={{marginBottom: '20px'}}
           name={'algorithm'}
           fullWidth={true}
           value={this.state.algorithm}
           label={I18n.t('form.documentSearch.algorithm.label')}
-          onChange={event => {this.setState({algorithm: event.target.value})}}>
+          onChange={event => this.setState({algorithm: event.target.value})}>
           <option value="tfidf">TF-IDF</option>
           <option value="doc2vec">Doc2Vec</option>
           <option value="doc2vecc">Doc2VecC</option>
           <option value="lda">LDA</option>
         </NativeSelect>
+        <InputLabel>
+          {I18n.t('form.documentSearch.resultSize.label')}
+        </InputLabel>
+        <TextField
+          fullWidth={true}
+          value={this.state.resultSize}
+          onChange={event => this.setState({resultSize: event.target.value})}
+          type="number"
+          variant="filled"
+          inputProps={{min: 0, step: 100}}/>
       </div>
     )
   }
@@ -129,6 +144,11 @@ class QueryResultOptionDialog extends React.Component {
     )
   }
 
+  showOverflow = {
+    overflow: 'visible',
+    padding: '12px'
+  }
+
   render () {
     const {fullScreen} = this.props
 
@@ -142,18 +162,16 @@ class QueryResultOptionDialog extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="responsive-dialog-title">
-          <DialogTitle id="responsive-dialog-title"><Translate value="dialog.changeAlgorithm.title"/></DialogTitle>
-          <DialogContent>
-            {this.renderAlgorithmSelect()}
-          </DialogContent>
-          <DialogTitle id="responsive-dialog-title"><Translate value="dialog.filterBy.title"/></DialogTitle>
-          <DialogContent>
-            {this.renderFilterSelect()}
-          </DialogContent>
-          <DialogTitle id="responsive-dialog-title"><Translate value="dialog.show.title"/></DialogTitle>
-          <DialogContent>
-            {this.renderShowToggle()}
-          </DialogContent>
+
+          <DialogTitle style={this.showOverflow} id="responsive-dialog-title"><Translate value="dialog.changeAlgorithm.title"/></DialogTitle>
+          <DialogContent style={this.showOverflow}>{this.renderAlgorithmSelect()}</DialogContent>
+
+          <DialogTitle style={this.showOverflow} id="responsive-dialog-title"><Translate value="dialog.filterBy.title"/></DialogTitle>
+          <DialogContent style={this.showOverflow}>{this.renderFilterSelect()}</DialogContent>
+
+          <DialogTitle style={this.showOverflow} id="responsive-dialog-title"><Translate value="dialog.show.title"/></DialogTitle>
+          <DialogContent style={this.showOverflow}>{this.renderShowToggle()}</DialogContent>
+
           <DialogActions>
             <Button onClick={() => this.setState({open: false})} color="primary">
               <Translate value="form.cancel"/>
@@ -174,7 +192,9 @@ QueryResultOptionDialog.propTypes = {
   filters: PropTypes.object.isRequired,
   setFilters: PropTypes.func.isRequired,
   show: PropTypes.object.isRequired,
-  setShow: PropTypes.func.isRequired
+  setShow: PropTypes.func.isRequired,
+  setResultSize: PropTypes.func.isRequired,
+  resultSize: PropTypes.number.isRequired
 }
 
 export default connect(

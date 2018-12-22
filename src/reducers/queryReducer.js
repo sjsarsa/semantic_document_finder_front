@@ -1,4 +1,4 @@
-import { SET_FILTERS, SET_SHOW, SET_SIMILARITY_ALGORTIHM } from '../actions/queryActions'
+import { SET_FILTERS, SET_RESULT_SIZE, SET_SHOW, SET_SIMILARITY_ALGORTIHM } from '../actions/queryActions'
 
 const initialState = {
   algorithm: 'tfidf',
@@ -10,7 +10,8 @@ const initialState = {
   show: {
     'similarity': true,
     'wordCount': false
-  }
+  },
+  resultSize: 100
 }
 
 export function queryReducer (state = initialState, action) {
@@ -26,6 +27,10 @@ export function queryReducer (state = initialState, action) {
     case SET_SHOW:
       return Object.assign({}, state, {
         show: action.show
+      })
+    case SET_RESULT_SIZE:
+      return Object.assign({}, state, {
+        resultSize: action.resultSize
       })
     default:
       return state

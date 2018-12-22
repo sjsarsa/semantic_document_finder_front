@@ -22,6 +22,9 @@ export default {
         algorithm: {
           label: 'Algorithm'
         },
+        resultSize: {
+          label: 'Result size'
+        },
         filter: {
           court: 'Court',
           maxLength: 'Maximum word count',
@@ -34,7 +37,7 @@ export default {
     },
     dialog: {
       changeAlgorithm: {
-        title: 'Change document similarity ranking algorithm'
+        title: 'Options for query results (requires updating result set)'
       },
       signin: {
         title: 'Please choose a username and a password to create an account'
