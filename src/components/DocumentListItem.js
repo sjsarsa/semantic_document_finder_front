@@ -20,15 +20,16 @@ function mapStateToProps (state) {
     queryDocument: state.document.queryDocument,
     similarityAlgorithm: state.query.algorithm,
     loggedUser: state.user.loggedUser,
-    show: state.query.show
+    show: state.query.show,
+    resultSize: state.query.resultSize
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    getSimilar: (document, algorithm) => {
+    getSimilar: (document, algorithm, resultSize) => {
       dispatch(setQueryDocument(document))
-      getSimilarDocsById(document.id, algorithm, dispatch)
+      getSimilarDocsById(document.id, algorithm, resultSize, dispatch)
     }
   }
 }
@@ -114,7 +115,8 @@ class DocumentListItem extends Component {
     return (
       <div style={{padding: '5px'}}>
         <Button style={{padding: '14px 16px', marginTop: '5px'}}
-                onClick={() => this.props.getSimilar(this.props.document, this.props.similarityAlgorithm)}>
+                onClick={() => this.props.getSimilar(this.props.document, this.props.similarityAlgorithm,
+                                                     this.props.resultSize)}>
           <Translate value="document.getSimilar"/>
         </Button>
       </div>
@@ -146,7 +148,9 @@ DocumentListItem.propTypes = {
   document: PropTypes.object.isRequired,
   queryDocument: PropTypes.object,
   getSimilar: PropTypes.func,
-  similarityAlgorithm: PropTypes.string
+  similarityAlgorithm: PropTypes.string,
+  resultSize: PropTypes.number.isRequired,
+  show: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DocumentListItem)

@@ -74,10 +74,10 @@ export const get_extracted_text_failed = () => {
 /*
   HTTP actions
  */
-export function postDocumentToDocApi (document, modelName, n, dispatch) {
+export function postDocumentToDocApi (document, modelName, resultSize, dispatch) {
   dispatch(getSimilarDocsStarted())
 
-  return axios.post(PYTHON_API_URL + '/top-similar/' + modelName + '?n=' + n, {
+  return axios.post(PYTHON_API_URL + '/top-similar/' + modelName + '?n=' + resultSize, {
     document: document
   }).then(
     response => {dispatch(getSimilarDocsSuccessful(response.data.documents))},
@@ -88,10 +88,10 @@ export function postDocumentToDocApi (document, modelName, n, dispatch) {
   )
 }
 
-export function getSimilarDocsById (id, modelName, n, dispatch) {
+export function getSimilarDocsById (id, modelName, resultSize, dispatch) {
   dispatch(getSimilarDocsStarted())
 
-  return axios.get(PYTHON_API_URL + '/top-similar/' + modelName + '/' + id + '?n=' + n).then(
+  return axios.get(PYTHON_API_URL + '/top-similar/' + modelName + '/' + id + '?n=' + resultSize).then(
     response => dispatch(getSimilarDocsSuccessful(response.data.documents)),
     error => {
       dispatch(getSimilarDocsFailed())
