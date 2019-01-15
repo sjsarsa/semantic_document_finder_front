@@ -26,7 +26,7 @@ class LoginPage extends React.Component {
   render () {
     return (
       this.props.loggedUser ?
-        <Redirect to="/"/>
+        <Redirect to={process.env.PUBLIC_URL + "/"}/>
         :
         <div className="flex-column">
           <Typography variant="title" className="page-title">
