@@ -20,7 +20,7 @@ function mapDispatchToProps (dispatch) {
 class LogoutButton extends React.Component {
   render () {
     return (
-      <Link to="/">
+      <Link to={process.env.PUBLIC_URL + "/"}>
         <Button onClick={this.props.logout} color="inherit">
           <Translate value="logout"/>
         </Button>
