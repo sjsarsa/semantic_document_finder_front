@@ -17,9 +17,11 @@ import {
 import { SettingsApplications } from '@material-ui/icons'
 import { I18n, Translate } from 'react-redux-i18n'
 import { setFilters, setResultSize, setShow, setSimilarityAlgorithm } from '../actions/queryActions'
+import { postDocumentToDocApi } from '../actions/documentActions'
 
 function mapStateToProps (state) {
   return {
+    queryDocument: state.document.queryDocument,
     similarityAlgorithm: state.query.algorithm,
     filters: state.query.filters,
     show: state.query.show,
@@ -29,6 +31,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
+    updateQueryResults: (data, algorithm, resultSize) => postDocumentToDocApi(data, algorithm, resultSize, dispatch),
     setSimilarityAlgorithm: algorithm => dispatch(setSimilarityAlgorithm(algorithm)),
     setFilters: filters => dispatch(setFilters(filters)),
     setShow: show => dispatch(setShow(show)),
@@ -51,6 +54,10 @@ class QueryResultOptionDialog extends React.Component {
     this.props.setFilters(this.state.filters)
     this.props.setShow(this.state.show)
     this.props.setResultSize(this.state.resultSize)
+    if (this.state.algorithm !== this.props.similarityAlgorithm ||
+        this.state.resultSize !== this.props.resultSize) {
+        this.props.updateQueryResults(this.props.queryDocument, this.state.algorithm, this.state.resultSize)
+    }
   }
 
   renderAlgorithmSelect = () => {

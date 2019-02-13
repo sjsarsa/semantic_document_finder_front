@@ -1,4 +1,4 @@
-import { SET_FILTERS, SET_RESULT_SIZE, SET_SHOW, SET_SIMILARITY_ALGORTIHM } from '../actions/queryActions'
+import { SET_FILTERS, SET_RESULT_SIZE, SET_SHOW, SET_SIMILARITY_ALGORITHM } from '../actions/queryActions'
 
 const initialState = {
   algorithm: 'tfidf',
@@ -16,7 +16,7 @@ const initialState = {
 
 export function queryReducer (state = initialState, action) {
   switch (action.type) {
-    case SET_SIMILARITY_ALGORTIHM:
+    case SET_SIMILARITY_ALGORITHM:
       return Object.assign({}, state, {
         algorithm: action.algorithm
       })

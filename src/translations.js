@@ -37,7 +37,7 @@ export default {
     },
     dialog: {
       changeAlgorithm: {
-        title: 'Options for query results (requires updating result set)'
+        title: 'Options for query results'
       },
       signin: {
         title: 'Please choose a username and a password to create an account'

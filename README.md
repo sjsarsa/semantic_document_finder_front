@@ -1,6 +1,8 @@
 # This is the frontend for the semantic document finder.
  - Backend of the project is not yet public
 
+## Development
+```npm run start``` will start the development server in port 3000
 
 ## TODO:
  - Info

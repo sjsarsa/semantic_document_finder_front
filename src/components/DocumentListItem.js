@@ -48,10 +48,7 @@ class DocumentListItem extends Component {
   }
 
   isSameDocPair = (document1, document2) =>
-    R.or(
-      R.and(R.propEq('document1_id', document1.id), R.propEq('document2_id', document2.id)),
-      R.and(R.propEq('document1_id', document2.id), R.propEq('document2_id', document1.id)),
-    )
+    R.both(R.propEq('document1_id', document1.id), R.propEq('document2_id', document2.id))
 
   getRating = (document1, document2) =>
     R.find(this.isSameDocPair(document1, document2))(this.props.similarityRatings.sort((a, b) => new Date(b.date) - new Date(a.date)))
