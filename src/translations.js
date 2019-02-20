@@ -74,7 +74,7 @@ export default {
     },
     navBar: {
       documentSearch: 'Document search',
-      title: 'Semantic Finlex case law document search'
+      title: 'Semantic Finlex case law finder'
     },
     similarity: {
       rate: 'Rate similarity',
