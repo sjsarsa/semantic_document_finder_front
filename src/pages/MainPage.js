@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import secoLogo from '../../images/seco-logo.svg'
-import sfLogo from '../../images/sf-logo.png'
-import '../../App.css'
+import secoLogo from '../images/seco-logo.svg'
+import sfLogo from '../images/sf-logo.png'
+import '../App.css'
 // import { Translate } from 'react-redux-i18n'
 import Typography from '@material-ui/core/Typography'
 import { Translate } from 'react-redux-i18n'

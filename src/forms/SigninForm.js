@@ -4,9 +4,9 @@ import { Field, reduxForm } from 'redux-form'
 import PropTypes from 'prop-types'
 import { Button, Typography, Grow } from '@material-ui/core'
 // local imports
-import TextField from '../material-ui-render-components/TextField'
+import TextField from '../components/material-ui-render-components/TextField'
 import { Translate, I18n } from 'react-redux-i18n'
-import { signin } from '../../actions/userActions'
+import { signin } from '../actions/userActions'
 
 function mapStateToProps (state) {
   const formName = 'signinForm'

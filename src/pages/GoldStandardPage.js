@@ -4,13 +4,13 @@ import { Paper, Typography, Button } from '@material-ui/core'
 import { Translate, I18n } from 'react-redux-i18n'
 import PropTypes from 'prop-types'
 
-import '../../App.css'
-import QueryResult from '../QueryResult'
-import DocumentList from '../DocumentList'
-import { getGoldStandardDocuments } from '../../actions/documentActions'
-import { getUserRatings } from '../../actions/userActions'
-import DelayedCircularProgress from '../material-ui-render-components/DelayedCircularProgress'
-import InfoDialog from '../Dialogs/InfoDialog'
+import '../App.css'
+import QueryResult from '../components/QueryResult'
+import DocumentList from '../components/DocumentList'
+import { getGoldStandardDocuments } from '../actions/documentActions'
+import { getUserRatings } from '../actions/userActions'
+import DelayedCircularProgress from '../components/material-ui-render-components/DelayedCircularProgress'
+import InfoDialog from '../components/dialogs/InfoDialog'
 
 function mapStateToProps (state) {
   return {

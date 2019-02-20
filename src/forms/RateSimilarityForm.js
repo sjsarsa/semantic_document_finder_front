@@ -4,13 +4,11 @@ import { Field, reduxForm } from 'redux-form'
 import Button from '@material-ui/core/Button'
 import Radio from '@material-ui/core/Radio'
 import { FormControl, FormControlLabel } from '@material-ui/core/'
-import RadioGroup from '../material-ui-render-components/RadioGroup'
+import RadioGroup from '../components/material-ui-render-components/RadioGroup'
 import PropTypes from 'prop-types'
-
-import { postDocumentSimilarity } from '../../actions/documentActions'
-import SimilarityRatingInfoDialog from '../Dialogs/SimilarityRatingInfoDialog'
+import { postDocumentSimilarity } from '../actions/documentActions'
 import { I18n, Translate } from 'react-redux-i18n'
-import InfoDialog from '../Dialogs/InfoDialog'
+import InfoDialog from '../components/dialogs/InfoDialog'
 
 // local imports
 

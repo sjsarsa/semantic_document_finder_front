@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import { connect } from 'react-redux'
 
-import '../../App.css'
+import '../App.css'
 import GetSimilarDocsForm from './GetSimilarDocsForm'
 import { Translate } from 'react-redux-i18n'
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import DocumentListItem from './DocumentListItem'
-import CustomPaginationActionsTable from './Paging/CustomPaginationActionsTable'
+import CustomPaginationActionsTable from './paging/CustomPaginationActionsTable'
 
 function mapStateToProps (state) {
   return {}

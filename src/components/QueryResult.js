@@ -12,7 +12,7 @@ import '../App.css'
 import DocumentList from './DocumentList'
 import { findDOMNode } from 'react-dom'
 import { Translate } from 'react-redux-i18n'
-import QueryResultOptionDialog from './Dialogs/QueryResultOptionDialog'
+import QueryResultOptionDialog from './dialogs/QueryResultOptionDialog'
 
 function mapStateToProps (state) {
   return {

@@ -117,8 +117,8 @@ export default {
           text: 'For issues or feedback, please send e-mail to sami.sarsa@aalto.fi'
         }
       },
-      account: {
-        title: 'Account info',
+      accounts: {
+        title: 'User account info',
         usage: {
           title: 'What is creating an account for?',
           text: 'Creating an account is required to rate document similarities and nothing else.\n' +
@@ -130,7 +130,8 @@ export default {
           title: 'Privacy',
           text: 'The signed up users are as anonymous to us as ones without accounts. \n' +
           'The only data we store from users with accounts is their username, password and the ratings given by them.'
-        }
+        },
+        button: 'User accounts'
       },
       similarity: {
         title: 'Similarity rating info',
@@ -158,7 +159,7 @@ export default {
     test: 'Testing',
     logout: 'Log out',
     login: 'Log in',
-    signin: 'Sign in here',
+    signin: 'Sign in by clicking here',
     loggedIn: {
       title: 'Logged in as %{username}',
       ratingInfo: 'Now that you are logged in, you may rate any document search results.\n' +

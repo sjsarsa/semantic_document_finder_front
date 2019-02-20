@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Typography } from '@material-ui/core'
 
-import LoginForm from '../Forms/LoginForm'
+import LoginForm from '../forms/LoginForm'
 import { Translate } from 'react-redux-i18n'
-import '../../App.css'
-import DelayedCircularProgress from '../material-ui-render-components/DelayedCircularProgress'
-import SigninDialog from '../Dialogs/SigninDialog'
+import '../App.css'
+import DelayedCircularProgress from '../components/material-ui-render-components/DelayedCircularProgress'
+import SigninDialog from '../components/dialogs/SigninDialog'
 
 function mapStateToProps (state) {
   return {

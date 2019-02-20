@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
-import secoLogo from '../../images/seco-logo.svg'
-import sfLogo from '../../images/sf-logo.png'
-import '../../App.css'
-// import { Translate } from 'react-redux-i18n'
+import '../App.css'
 import Typography from '@material-ui/core/Typography'
-import { Translate } from 'react-redux-i18n'
-import InfoDialog from '../Dialogs/InfoDialog'
+import { Translate, I18n } from 'react-redux-i18n'
+import InfoDialog from '../components/dialogs/InfoDialog'
 
 function mapStateToProps (state) {
   return {
@@ -27,7 +23,7 @@ class AboutPage extends Component {
         {/*<Typography variant="title"><Translate value="infoDialog.similarity.title"/></Typography>*/}
         {/*<Typography variant="title"><Translate value="infoDialog.data.title"/></Typography>*/}
         <InfoDialog info="general" contentKeys={["creator", "contact"]} style={{padding: '20px'}}/>
-        <InfoDialog info="account" contentKeys={["usage", "privacy"]} style={{padding: '20px'}}/>
+        <InfoDialog buttonTitle={I18n.t("infoDialog.accounts.button")} info="accounts" contentKeys={["usage", "privacy"]} style={{padding: '20px'}}/>
       </div>
     )
   }
