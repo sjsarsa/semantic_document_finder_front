@@ -25,8 +25,7 @@ class MainPage extends Component {
           <img src={sfLogo} className="App-logo-spin-reverse" alt="sf-logo"/>
         </header>
         <Typography className="App-intro">
-          A work in progress...<br/><br/>Upcoming features: ELMo embeddings, combined algorithms,
-          algorithm explanations, detailed info on rating documents, UI in Finnish
+          A work in progress...<br/><br/>Please try the document search anyway or log in to rate search results.
         </Typography>
         {this.props.loggedUser &&
         [<Typography variant="title" style={{'padding': '50px'}}>
