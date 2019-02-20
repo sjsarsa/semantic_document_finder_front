@@ -66,7 +66,11 @@ export default {
     },
     navigation: {
       documentSearch: 'document-search',
-      compareDocuments: 'compare-documents'
+      compareDocuments: 'compare-documents',
+      about: 'about'
+    },
+    about: {
+      title: 'Information about the project'
     },
     navBar: {
       documentSearch: 'Document search',
@@ -75,10 +79,6 @@ export default {
     similarity: {
       rate: 'Rate similarity',
       alreadyRated: 'You have already rated this document pair',
-      ratingInfo: {
-        title: 'Similarity rating info',
-        info: 'Just pick one...'
-      },
       '5': '5 - Almost identical cases',
       '4': '4 - Similar topics and content',
       '3': '3 - Multiple shared topics',
@@ -93,23 +93,77 @@ export default {
       login: {
         title: 'Log in by entering your username and password',
         info: 'Logging in is required to rate document similarities and nothing else.\n' +
-        'The rated similarities will be used for evaluating the automatic document search methods used in this application.\n',
+        'The rated similarities are used for evaluating the automatic document search methods used in this application.\n' +
+        'By creating an account you give your consent for us to use your similarity ratings for evaluating document search algorithms. \n' +
+        'We highly appreciate any ratings provided by you.',
         signin: 'Don\'t have an account yet?'
       },
       goldStandard: {
-        title: 'Gold standard set for evaluation of automatic semantic similarity measures',
-        documents: 'The documents included in the gold standard set'
+        title: 'Welcome to document comparison page',
+        documents: 'Example query documents for document pair similarity rating'
       },
+    },
+    infoDialog: {
+      general: {
+        title: 'General info',
+        creator: {
+          title: 'Creator',
+          text: 'This project is created by Sami Sarsa.\n'
+                + 'The project is supported by SeCo/Aalto University, HELDIG/Helsinki University, Edita and the Ministry ' +
+                  'of Justice of Finland'
+        },
+        contact: {
+          title: 'Contact',
+          text: 'For issues or feedback, please send e-mail to sami.sarsa@aalto.fi'
+        }
+      },
+      account: {
+        title: 'Account info',
+        usage: {
+          title: 'What is creating an account for?',
+          text: 'Creating an account is required to rate document similarities and nothing else.\n' +
+          'The rated similarities are used for evaluating the automatic document search methods used in this application.\n\n' +
+          'By creating an account you give your consent for us to use your similarity ratings for evaluating document search algorithms. \n' +
+          'We highly appreciate any ratings provided by you.'
+        },
+        privacy: {
+          title: 'Privacy',
+          text: 'The signed up users are as anonymous to us as ones without accounts. \n' +
+          'The only data we store from users with accounts is their username, password and the ratings given by them.'
+        }
+      },
+      similarity: {
+        title: 'Similarity rating info',
+        ratingDocuments: {
+          title: 'Acquiring documents for rating similarities',
+          text: 'Similarities are rated for document pairs consisting of a query and a result. \n' +
+                'Documents can be searched either by using the form under ' +
+                '"DOCUMENT SEARCH" tab or pressing "GET SIMILAR" button for a document.\n' +
+                'When a user is logged in, a rate similarity form will appear to the right of each result.'
+        },
+        ratingSubmission: {
+          title: 'Submitting a rating',
+          text: 'Rating is submitted when a rating is selected in the similarity form and the form is submitted.\n' +
+                'A green tick (✓) in the form indicates that the given query-result pair has been rated.\n' +
+                'Unlimited submissions are allowed.'
+        },
+        button: 'Show rating info'
+      }
     },
     info: 'Info',
     home: 'Home',
-    hide: 'Hide query',
+    hide: 'Hide',
     show: 'Show',
     close: 'Close',
     test: 'Testing',
     logout: 'Log out',
     login: 'Log in',
     signin: 'Sign in here',
+    loggedIn: {
+      title: 'Logged in as %{username}',
+      ratingInfo: 'Now that you are logged in, you may rate any document search results.\n' +
+                  'Also, thank you for your willingness to help in evaluating Finnish case law document search.',
+    },
     dropzone: {
       info: 'Click here to extract text from PDF/image files or try dropping them here. \nImage files and PDFs with scanned images require "Scan image" as text extraction method.\n',
       select: 'Text extraction',

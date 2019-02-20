@@ -4,12 +4,13 @@ import { Field, reduxForm } from 'redux-form'
 import Button from '@material-ui/core/Button'
 import Radio from '@material-ui/core/Radio'
 import { FormControl, FormControlLabel } from '@material-ui/core/'
-import RadioGroup from './material-ui-render-components/RadioGroup'
+import RadioGroup from '../material-ui-render-components/RadioGroup'
 import PropTypes from 'prop-types'
 
-import { postDocumentSimilarity } from '../actions/documentActions'
-import SimilarityRatingInfoDialog from './SimilarityRatingInfoDialog'
+import { postDocumentSimilarity } from '../../actions/documentActions'
+import SimilarityRatingInfoDialog from '../Dialogs/SimilarityRatingInfoDialog'
 import { I18n, Translate } from 'react-redux-i18n'
+import InfoDialog from '../Dialogs/InfoDialog'
 
 // local imports
 
@@ -75,8 +76,9 @@ class RateSimilarityForm extends React.Component {
           </FormControl>
         </div>
         <div style={{marginTop: '20px', display: 'flex', flex: '0 1 auto', flexDirection: 'row'}}>
-          <div style={{flexGrow: '1'}}>
-            <SimilarityRatingInfoDialog style={{maxWidth: '50%'}}/>
+          <div style={{flexGrow: '1', maxWidth: '50%'}}>
+            <InfoDialog buttonTitle={I18n.t("info")}
+                        info="similarity" contentKeys={["ratingDocuments", "ratingSubmission"]}/>
           </div>
           <div style={{maxWidth: '50%'}}>
             <Button type="submit" style={{alignSelf: 'flex-end', minWidth: '50px'}}><Translate

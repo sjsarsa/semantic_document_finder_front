@@ -16,8 +16,8 @@ import {
 } from '@material-ui/core'
 import { SettingsApplications } from '@material-ui/icons'
 import { I18n, Translate } from 'react-redux-i18n'
-import { setFilters, setResultSize, setShow, setSimilarityAlgorithm } from '../actions/queryActions'
-import { postDocumentToDocApi } from '../actions/documentActions'
+import { setFilters, setResultSize, setShow, setSimilarityAlgorithm } from '../../actions/queryActions'
+import { postDocumentToDocApi } from '../../actions/documentActions'
 
 function mapStateToProps (state) {
   return {

@@ -5,7 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { Translate } from 'react-redux-i18n'
-import SigninForm from './SigninForm'
+import SigninForm from '../Forms/SigninForm'
 
 class SigninDialog extends React.Component {
   state = {

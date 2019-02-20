@@ -7,7 +7,7 @@ import green from '@material-ui/core/colors/green'
 import * as R from 'ramda'
 
 import sfLogo from '../images/sf-logo.png'
-import RateSimilarityForm from './RateSimilarityForm'
+import RateSimilarityForm from './Forms/RateSimilarityForm'
 import { Translate, I18n } from 'react-redux-i18n'
 import Done from '@material-ui/icons/Done'
 

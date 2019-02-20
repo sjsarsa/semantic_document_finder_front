@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import secoLogo from '../images/seco-logo.svg'
-import sfLogo from '../images/sf-logo.png'
-import '../App.css'
+import secoLogo from '../../images/seco-logo.svg'
+import sfLogo from '../../images/sf-logo.png'
+import '../../App.css'
 // import { Translate } from 'react-redux-i18n'
 import Typography from '@material-ui/core/Typography'
+import { Translate } from 'react-redux-i18n'
 
 function mapStateToProps (state) {
   return {
@@ -14,7 +15,7 @@ function mapStateToProps (state) {
 }
 
 
-class Main extends Component {
+class MainPage extends Component {
   render () {
     return (
       <div className="flex" style={{textAlign: 'center'}}>
@@ -28,9 +29,10 @@ class Main extends Component {
           algorithm explanations, detailed info on rating documents, UI in Finnish
         </Typography>
         {this.props.loggedUser &&
-        <Typography variant="title" style={{'padding': '50px'}}>
-          Logged in as {this.props.loggedUser}
-        </Typography>}
+        [<Typography variant="title" style={{'padding': '50px'}}>
+          <Translate value="loggedIn.title" username={this.props.loggedUser}/>
+        </Typography>,
+        <Typography><Translate value="loggedIn.ratingInfo"/></Typography>]}
       </div>
     )
   }
@@ -38,4 +40,4 @@ class Main extends Component {
 
 export default connect(
   mapStateToProps
-)(Main)
+)(MainPage)

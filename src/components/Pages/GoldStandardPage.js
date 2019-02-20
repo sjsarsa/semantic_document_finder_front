@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Paper, Typography, Button } from '@material-ui/core'
-import { Translate } from 'react-redux-i18n'
+import { Translate, I18n } from 'react-redux-i18n'
 import PropTypes from 'prop-types'
 
-import '../App.css'
-import QueryResult from './QueryResult'
-import SimilarityRatingInfo from './SimilarityRatingInfo'
-import DocumentList from './DocumentList'
-import { getGoldStandardDocuments } from '../actions/documentActions'
-import { getUserRatings } from '../actions/userActions'
-import DelayedCircularProgress from './material-ui-render-components/DelayedCircularProgress'
+import '../../App.css'
+import QueryResult from '../QueryResult'
+import DocumentList from '../DocumentList'
+import { getGoldStandardDocuments } from '../../actions/documentActions'
+import { getUserRatings } from '../../actions/userActions'
+import DelayedCircularProgress from '../material-ui-render-components/DelayedCircularProgress'
+import InfoDialog from '../Dialogs/InfoDialog'
 
 function mapStateToProps (state) {
   return {
@@ -70,7 +70,9 @@ class GoldStandardPage extends Component {
       <div className="flex">
         <div className="page-title">
           <Typography variant="title"><Translate value="page.goldStandard.title"/></Typography>
-          <SimilarityRatingInfo/>
+          <Typography style={{padding: '20px'}}><Translate value="loggedIn.ratingInfo"/></Typography>
+          <InfoDialog buttonTitle={I18n.t("infoDialog.similarity.button")}
+                      info="similarity" contentKeys={["ratingDocuments", "ratingSubmission"]}/>
         </div>
         {this.props.getRatingDocumentsInProgress ? <DelayedCircularProgress/> : this.renderGoldStandard()}
         <QueryResult/>

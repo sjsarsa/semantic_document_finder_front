@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import '../App.css'
-import QueryResult from './QueryResult'
-import { getSimilarDocsById, setQueryDocument } from '../actions/documentActions'
-import GetSimilarDocsFormWrapper from './GetSimilarDocsFormWrapper'
+
+import '../../App.css'
+import QueryResult from '../QueryResult'
+import { getSimilarDocsById, setQueryDocument } from '../../actions/documentActions'
+import GetSimilarDocsFormWrapper from '../Forms/GetSimilarDocsFormWrapper'
 import { Translate } from 'react-redux-i18n'
 import { Typography } from '@material-ui/core'
 

@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Typography } from '@material-ui/core'
 
-import LoginForm from './LoginForm'
+import LoginForm from '../Forms/LoginForm'
 import { Translate } from 'react-redux-i18n'
-import '../App.css'
-import DelayedCircularProgress from './material-ui-render-components/DelayedCircularProgress'
-import SigninDialog from './SigninDialog'
+import '../../App.css'
+import DelayedCircularProgress from '../material-ui-render-components/DelayedCircularProgress'
+import SigninDialog from '../Dialogs/SigninDialog'
 
 function mapStateToProps (state) {
   return {
@@ -26,7 +26,7 @@ class LoginPage extends React.Component {
   render () {
     return (
       this.props.loggedUser ?
-        <Redirect to={process.env.PUBLIC_URL + "/"}/>
+        <Redirect to={process.env.PUBLIC_URL + "/compare-documents"}/>
         :
         <div className="flex-column">
           <Typography variant="title" className="page-title">
