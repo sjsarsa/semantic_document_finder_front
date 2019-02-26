@@ -88,7 +88,7 @@ export default {
     },
     page: {
       documentSearch: {
-        title: 'Search documents by inserting text or keywords as document content'
+        title: 'Search documents by inserting text as document content or upload content directly from a file'
       },
       login: {
         title: 'Log in by entering your username and password',
