@@ -1,4 +1,4 @@
-# This is the frontend for the semantic document finder.
+# This is the frontend for Semantic Finlex document finder
  - Backend of the project is not yet public
 
 ## Development
