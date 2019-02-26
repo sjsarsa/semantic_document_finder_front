@@ -10,5 +10,3 @@
     - models
  - Loading spinner for suggested similarity rating documents for evaluation
  - Finnish UI
-
-### This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
