@@ -70,7 +70,7 @@ export default {
       about: 'about'
     },
     about: {
-      title: 'Information about the project'
+      title: 'Information about this project'
     },
     navBar: {
       documentSearch: 'Document search',
@@ -105,6 +105,7 @@ export default {
     },
     infoDialog: {
       general: {
+        button: 'General and contact',
         title: 'General info',
         creator: {
           title: 'Creator',
@@ -149,6 +150,18 @@ export default {
                 'Unlimited submissions are allowed.'
         },
         button: 'Show rating info'
+      },
+      sourceCode: {
+        title: 'Source code info',
+        button: 'Source code',
+        frontend: {
+          title: 'Frontend',
+          text: 'Source code for this web application\'s frontend is available on <a href="https://github.com/taikamurmeli/semantic_document_finder_front" style="color:#012ea3;">GitHub</a>'
+        },
+        backend: {
+          title: 'Backend',
+          text: 'Source code for the backend is not yet published'
+        }
       }
     },
     info: 'Info',

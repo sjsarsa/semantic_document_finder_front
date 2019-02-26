@@ -26,7 +26,7 @@ class InfoDialog extends React.Component {
     return this.props.contentKeys.map(key =>
       <div style={{paddingBottom: '10px', whiteSpace: 'pre-line'}} key={key}>
         <Typography variant="title"><Translate value={`infoDialog.${this.props.info}.${key}.title`}/></Typography>
-        <DialogContentText style={{padding: '5px'}}><Translate value={`infoDialog.${this.props.info}.${key}.text`}/></DialogContentText>
+        <DialogContentText style={{padding: '5px'}}><Translate value={`infoDialog.${this.props.info}.${key}.text`} dangerousHTML/></DialogContentText>
       </div>)
   }
 
