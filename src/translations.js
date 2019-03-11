@@ -179,17 +179,21 @@ export default {
                   'Also, thank you for your willingness to help in evaluating Finnish case law document search.',
     },
     dropzone: {
-      info: 'Click here to extract text from PDF/image files or try dropping them here. \nImage files and PDFs with scanned images require "Scan image" as text extraction method.\n',
+      info: 'Click on this area to extract text from files or try dropping them here. \n\n' +
+            'Supported formats are: Text file, XML, PDF and image files such as JPEG and PNG.\n' +
+            'If a PDF contains text as scanned image, use image scanning.',
       select: 'Text extraction',
       selectInfo: 'Read PDF assumes that the file is a *.pdf file with directly extractable text. This method is accurate and fast but won\'t \n' +
       'work with for scanned images.\n\n' +
       'Image OCR is slower and less accurate than Read PDF but works for most image files.',
       noFile: 'No file selected.',
-      extractTextFailed: 'check that pdf contains an extractable text layer, otherwise try image OCR'
+      extractTextFailed: 'Something went wrong with text extraction. Please check that you are using a correct text extraction method.'
     },
     datatype: {
       image: 'Scan image (OCR)',
-      pdf: 'Read PDF'
+      pdf: 'Read PDF',
+      txt: 'Plain text',
+      xml: 'Read XML'
     }
   },
 

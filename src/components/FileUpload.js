@@ -24,19 +24,22 @@ function mapDispatchToProps (dispatch) {
 
 class FileUpload extends React.Component {
 
+  // TODO: this better
   isImage = (file) => R.contains(R.last(R.split('.', file.name)), ['jpeg', 'jpg', 'png'])
+  isTxt = (file) => R.contains(R.last(R.split('.', file.name)), ['txt']) || !R.contains(['.'])
+  isXml = (file) => R.contains(R.last(R.split('.', file.name)), ['xml'])
+  isPdf = (file) => R.contains(R.last(R.split('.', file.name)), ['pdf'])
 
   state = {
     files: [],
     file: undefined,
-    fileType: 'pdf'
+    fileType: 'txt'
   }
 
   onDrop = (acceptedFiles, rejectedFiles) => {
     // Only one file can be accepted at once
     const file = acceptedFiles[0]
     this.setState({file: file})
-    if (this.isImage(file)) this.setState({fileType: 'image'})
     this.props.extractText(file, this.state.fileType)
   }
 
@@ -46,8 +49,8 @@ class FileUpload extends React.Component {
       <div style={{display: 'flex', flexDirection: 'row', flex: '1 0', marginTop: '10px'}}>
         <Paper style={{flexDirection: 'column', flex: '1 0', margin: '10px'}}>
           <div style={{display: 'flex', flexDirection: 'row'}}>
-            <Dropzone onDrop={this.onDrop} style={{height: 45, textAlign: 'left', padding: '10px', flex: 1}}>
-              <Translate value="dropzone.info" style={{display: 'flex', height: 40, whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
+            <Dropzone onDrop={this.onDrop} style={{height: 90, textAlign: 'left', padding: '10px', flex: 1}}>
+              <Translate value="dropzone.info" style={{display: 'flex', height: 80, whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
             </Dropzone>
           </div>
           <Divider/>
@@ -72,8 +75,10 @@ class FileUpload extends React.Component {
             fullWidth={true}
             value={this.state.fileType}
             onChange={event => {this.setState({fileType: event.target.value})}}>
+            <option value="txt">{I18n.t('datatype.txt')}</option>
+            <option value="xml">{I18n.t('datatype.xml')}</option>
             <option value="pdf">{I18n.t('datatype.pdf')}</option>
-            <option value="image">{I18n.t('datatype.image')}</option>
+            <option value="img">{I18n.t('datatype.image')}</option>
           </NativeSelect>
         </FormControl>
       </div>
