@@ -24,7 +24,7 @@ function mapDispatchToProps (dispatch) {
 
 class FileUpload extends React.Component {
 
-  // TODO: this better
+  // TODO: automatically set file format by extension (maybe)
   isImage = (file) => R.contains(R.last(R.split('.', file.name)), ['jpeg', 'jpg', 'png'])
   isTxt = (file) => R.contains(R.last(R.split('.', file.name)), ['txt']) || !R.contains(['.'])
   isXml = (file) => R.contains(R.last(R.split('.', file.name)), ['xml'])
@@ -60,7 +60,7 @@ class FileUpload extends React.Component {
               file.name + ' - ' + file.size + ' bytes'
               : <Translate value='dropzone.noFile'/>}
           </Typography>
-          {!this.props.getExtractedTextInProgress && file && !this.props.queryDocument.title &&
+          {!this.props.getExtractedTextInProgress && file && this.props.queryDocument.title !== file.name &&
           <Typography style={{marginLeft: '10px', textAlign: 'left', color: 'red'}}>
             <Translate value='dropzone.extractTextFailed'/>
           </Typography>}
