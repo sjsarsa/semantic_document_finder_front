@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history'
 import { createLogger }from 'redux-logger'
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n'
 import thunk from 'redux-thunk'
-import { MuiThemeProvider } from '@material-ui/core'
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
 
 import './index.css'
 import App from './App'
@@ -15,6 +15,7 @@ import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers/rootReducer'
 import translations from './translations'
 import theme from './components/muiTheme'
+import { getAlgorithms } from './actions/queryActions'
 
 const history = createBrowserHistory()
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -36,10 +37,12 @@ const store = createStore(
 syncTranslationWithStore(store)
 store.dispatch(loadTranslations(translations))
 store.dispatch(setLocale('en'))
+getAlgorithms(store.dispatch)
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
+      <CssBaseline/>
       <App history={history}/>
     </MuiThemeProvider>
   </Provider>,

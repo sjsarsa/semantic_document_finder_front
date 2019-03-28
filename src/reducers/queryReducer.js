@@ -1,7 +1,14 @@
-import { SET_FILTERS, SET_RESULT_SIZE, SET_SHOW, SET_SIMILARITY_ALGORITHM } from '../actions/queryActions'
+import {
+  SET_ALGORITHMS,
+  SET_FILTERS,
+  SET_RESULT_SIZE,
+  SET_SHOW,
+  SET_SIMILARITY_ALGORITHM
+} from '../actions/queryActions'
 
 const initialState = {
-  algorithm: 'tfidf',
+  availableAlgorithms: [],
+  algorithm: 'ensemble',
   filters: {
     'court': undefined,
     'contains': undefined,
@@ -31,6 +38,10 @@ export function queryReducer (state = initialState, action) {
     case SET_RESULT_SIZE:
       return Object.assign({}, state, {
         resultSize: action.resultSize
+      })
+    case SET_ALGORITHMS:
+      return Object.assign({}, state, {
+        availableAlgorithms: action.algorithms
       })
     default:
       return state

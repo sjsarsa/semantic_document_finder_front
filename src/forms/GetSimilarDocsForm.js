@@ -20,6 +20,7 @@ function mapStateToProps (state) {
       title: state.document.queryDocument.title, content: state.document.queryDocument.content,
       algorithm: state.query.algorithm, resultSize: state.query.resultSize
     },
+    algorithms: state.query.availableAlgorithms,
     enableReinitialize: true,
     getExtractedTextInProgress: state.document.getExtractedTextInProgress,
     resultSize: state.query.resultSize,
@@ -86,10 +87,9 @@ class GetSimilarDocsForm extends React.Component {
                   component={SelectField}
                   fullWidth={true}
                   label={I18n.t('form.documentSearch.algorithm.label')}>
-                  <option value="tfidf">TF-IDF</option>
-                  <option value="doc2vec">Doc2Vec</option>
-                  <option value="doc2vecc">Doc2VecC</option>
-                  <option value="lda">LDA</option>
+                  {this.props.algorithms.map(algorithm =>
+                    <option value={algorithm} key={algorithm}>{I18n.t('algorithm.' + algorithm)}</option>
+                  )}
                 </Field>
                 <Field
                   style={{marginLeft: '20px', marginTop: '10px', width: 100}}

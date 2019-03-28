@@ -57,12 +57,12 @@ export default {
       compare: 'Compare documents',
       searchInstructions: 'Click the "find documents" button to search for documents.',
     },
-    doc2vec: {
-      title: 'Document search with paragraph vector (Doc2Vec) embeddings',
-      description: ''
-    },
-    tfidf: {
-      title: 'Document search with TF-IDF vector embeddings',
+    algorithm: {
+      lda: 'LDA',
+      ensemble: 'Ensemble',
+      doc2vecc: 'Doc2VecC',
+      doc2vec: 'Doc2Vec',
+      tfidf: 'TF-IDF',
     },
     navigation: {
       documentSearch: 'document-search',

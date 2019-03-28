@@ -17,10 +17,11 @@ import {
 import { SettingsApplications } from '@material-ui/icons'
 import { I18n, Translate } from 'react-redux-i18n'
 import { setFilters, setResultSize, setShow, setSimilarityAlgorithm } from '../../actions/queryActions'
-import { postDocumentToDocApi } from '../../actions/documentActions'
+import { getSimilarDocsById, postDocumentToDocApi } from '../../actions/documentActions'
 
 function mapStateToProps (state) {
   return {
+    algorithms: state.query.availableAlgorithms,
     queryDocument: state.document.queryDocument,
     similarityAlgorithm: state.query.algorithm,
     filters: state.query.filters,
@@ -31,7 +32,10 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    updateQueryResults: (data, algorithm, resultSize) => postDocumentToDocApi(data, algorithm, resultSize, dispatch),
+    updateQueryResults: (document, algorithm, resultSize) => {
+      if (document.content) postDocumentToDocApi(document, algorithm, resultSize, dispatch)
+      if (document.id) getSimilarDocsById(document.id, algorithm, resultSize, dispatch)
+    },
     setSimilarityAlgorithm: algorithm => dispatch(setSimilarityAlgorithm(algorithm)),
     setFilters: filters => dispatch(setFilters(filters)),
     setShow: show => dispatch(setShow(show)),
@@ -73,10 +77,9 @@ class QueryResultOptionDialog extends React.Component {
           value={this.state.algorithm}
           label={I18n.t('form.documentSearch.algorithm.label')}
           onChange={event => this.setState({algorithm: event.target.value})}>
-          <option value="tfidf">TF-IDF</option>
-          <option value="doc2vec">Doc2Vec</option>
-          <option value="doc2vecc">Doc2VecC</option>
-          <option value="lda">LDA</option>
+          {this.props.algorithms.map(algorithm =>
+            <option value={algorithm} key={algorithm}>{I18n.t('algorithm.' + algorithm)}</option>
+          )}
         </NativeSelect>
         <InputLabel>
           {I18n.t('form.documentSearch.resultSize.label')}

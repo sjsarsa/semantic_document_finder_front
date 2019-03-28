@@ -5,10 +5,7 @@ Modified from https://material-ui.com/demos/tables/
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Table from '@material-ui/core/Table'
-import TableFooter from '@material-ui/core/TableFooter'
-import TablePagination from '@material-ui/core/TablePagination'
-import TableRow from '@material-ui/core/TableRow'
+import { Table, TableFooter, TablePagination, TableRow } from '@material-ui/core'
 import PaginationActions from './PaginationActions'
 
 const actionsStyles = theme => ({
@@ -18,6 +15,7 @@ const actionsStyles = theme => ({
     marginLeft: theme.spacing.unit * 2.5,
   },
 })
+
 
 class CustomPaginationActionsTable extends React.Component {
   constructor (props) {
@@ -40,7 +38,6 @@ class CustomPaginationActionsTable extends React.Component {
   render () {
     const data = this.props.data
     const {rowsPerPage, page} = this.state
-
     return (
       <div>
         {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(this.props.getListItem)}
@@ -48,6 +45,7 @@ class CustomPaginationActionsTable extends React.Component {
           <TableFooter>
             <TableRow>
               <TablePagination
+                classes={{toolbar: 'height-5'}}
                 colSpan={3}
                 count={data.length}
                 rowsPerPage={rowsPerPage}

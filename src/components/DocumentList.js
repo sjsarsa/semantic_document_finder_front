@@ -24,7 +24,7 @@ class DocumentList extends Component {
 
   render () {
     return (
-      <ul className="flex text-left">
+      <ul className="flex text-left" style={{overflowY: 'hidden'}}>
         {this.props.documents && this.renderDocumentsWithPaging()}
       </ul>
     )

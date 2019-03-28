@@ -45,7 +45,7 @@ class QueryResult extends Component {
 
   renderQueryDocument = (queryDocument) => {
     return (
-      <Paper style={{minWidth: '30%', marginTop: '20px', marginBottom: '20px', maxHeight: 'none'}}>
+      <Paper style={{marginTop: '20px', marginBottom: '20px'}}>
         <Button style={{float: 'right'}} onClick={this.toggleShowQueryDocument} autoFocus>
           <Translate value="hide"/>
         </Button>
@@ -80,14 +80,16 @@ class QueryResult extends Component {
         </div>
         <Divider/>
         <div className="flex-row container-100">
+          <div style={{minWidth: '5%', maxWidth: '30%', display: 'flex'}}>
           {this.state.showQueryDocument ?
             this.renderQueryDocument(this.props.queryDocument)
             :
-            <Button style={{maxWidth: '10%', fontSize: '10', marginTop: '20px', marginBottom: '20px'}}
+            <Button style={{fontSize: '10', marginTop: '20px', marginBottom: '20px', flexGrow: 1}}
                     onClick={this.toggleShowQueryDocument}>
               <Translate value="document.showQuery"/>
             </Button>}
-          <div ref={'list'} style={{flex: '1 1 auto'}}>
+          </div>
+          <div ref={'list'} style={{flex: '1 1 auto', maxWidth: '100%', minWidth: '30%', width: '60%'} }>
             <DocumentList documents={this.filterDocumentList(this.props.similarDocuments)}/>
           </div>
         </div>

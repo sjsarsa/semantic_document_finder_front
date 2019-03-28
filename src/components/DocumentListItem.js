@@ -8,7 +8,7 @@ import * as R from 'ramda'
 
 import sfLogo from '../images/sf-logo.png'
 import RateSimilarityForm from '../forms/RateSimilarityForm'
-import { Translate, I18n } from 'react-redux-i18n'
+import { Translate } from 'react-redux-i18n'
 import Done from '@material-ui/icons/Done'
 
 import theme from './muiTheme'
@@ -60,7 +60,7 @@ class DocumentListItem extends Component {
 
     const documentTitle = R.join(', ', R.concat([this.props.document.ecli], this.props.document.keywords.slice(0, 2)))
     return (
-      <div className="flex" style={{width: '100%'}}>
+      <div className="flex" style={{width: '100%', minWidth: '60%'}}>
         <ExpansionPanel>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon/>}>
@@ -80,8 +80,8 @@ class DocumentListItem extends Component {
 
   renderLink () {
     return (
-      <div style={{marginTop: '9px'}}>
-        <Button style={{minWidth: '40px', minHeight: '40px', padding: '4px 0px'}}
+      <div style={{marginTop: '9px', display: 'flex', marginBottom: '4px'}}>
+        <Button style={{minWidth: '20%', minHeight: '20%', padding: '4px 0px', marginBottom: '5px'}}
                 href={this.props.document.sf_link} target="_blank">
           <img style={{height: '40px', width: '40px'}}
                src={sfLogo} alt='Data finlex'/>
@@ -110,8 +110,8 @@ class DocumentListItem extends Component {
 
   renderGetSimilar () {
     return (
-      <div style={{padding: '5px'}}>
-        <Button style={{padding: '14px 16px', marginTop: '5px'}}
+      <div style={{padding: '5px', maxWidth: '20%', minWidth: '10%', display: 'flex', marginTop: '5px', marginBottom: '4px'}}>
+        <Button style={{padding: '14px 16px'}}
                 onClick={() => this.props.getSimilar(this.props.document, this.props.similarityAlgorithm,
                                                      this.props.resultSize)}>
           <Translate value="document.getSimilar"/>
@@ -131,7 +131,7 @@ class DocumentListItem extends Component {
           </div>
           {this.props.document.similarity && this.props.loggedUser && this.props.queryDocument
            && this.props.queryDocument.id !== undefined &&
-          <div className="flex-column align-top" style={{maxWidth: '30%', padding: '10px', marginRight: '20px'}}>
+          <div className="flex-column align-top" style={{maxWidth: '30%', minWidth: '10%', padding: '10px', marginRight: '20px'}}>
             {this.renderSimilarityForm()}
           </div>}
         </div>
