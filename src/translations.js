@@ -179,9 +179,10 @@ export default {
                   'Also, thank you for your willingness to help in evaluating Finnish case law document search.',
     },
     dropzone: {
-      info: 'Click on this area to extract text from files or try dropping them here. \n\n' +
+      title: 'File drop-zone',
+      info: 'Select a text extraction method from the drop-down menu on the right and click on this area to browse files or try dropping a file here. \n\n' +
             'Supported formats are: Text file, XML, PDF and image files such as JPEG and PNG.\n' +
-            'If a PDF contains text as scanned image, use image scanning.',
+            'If your PDF contains text as scanned image, use image scanning instead of PDF reading.',
       select: 'Text extraction',
       selectInfo: 'Read PDF assumes that the file is a *.pdf file with directly extractable text. This method is accurate and fast but won\'t \n' +
       'work with for scanned images.\n\n' +

@@ -10,8 +10,8 @@ import editaLogo from '../images/edita-logo-transparent.png'
 import heldigLogo from '../images/heldig-logo-transparent-black.png'
 
 const imgStyle = {
-  margin: '10px',
-  height: '35px'
+  margin: '1vh',
+  height: '65%'
 }
 
 const Footer = () => (
@@ -19,9 +19,9 @@ const Footer = () => (
     <img src={omLogoEng} style={imgStyle} alt="om-logo"/>
     <img src={secoLogo} style={imgStyle} alt='seco-logo'/>
     <img src={hyLogo} style={imgStyle}  alt="hy-logo"/>
-    <img src={heldigLogo} style={{...imgStyle, height: '27px', marginBottom: '12px'}}  alt="heldig-logo"/>
-    <img src={aaltoLogo} style={{...imgStyle, height: '30px', marginTop: '11px'}}  alt="aalto-logo"/>
-    <img src={editaLogo} style={{...imgStyle, height: '29px', marginBottom: '13px'}}  alt="edita-logo"/>
+    <img src={heldigLogo} style={{...imgStyle, height: '55%', marginTop: '1.3vh'}}  alt="heldig-logo"/>
+    <img src={aaltoLogo} style={{...imgStyle, height: '60%', marginTop: '1.2vh'}}  alt="aalto-logo"/>
+    <img src={editaLogo} style={{...imgStyle, height: '62%', marginTop: '1.1vh'}}  alt="edita-logo"/>
     <img src={vvmLogo} style={imgStyle} alt="vvm-logo"/>
   </div>
 )

@@ -49,8 +49,13 @@ class FileUpload extends React.Component {
       <div style={{display: 'flex', flexDirection: 'row', flex: '1 0', marginTop: '10px'}}>
         <Paper style={{flexDirection: 'column', flex: '1 0', margin: '10px'}}>
           <div style={{display: 'flex', flexDirection: 'row'}}>
-            <Dropzone onDrop={this.onDrop} style={{height: 90, textAlign: 'left', padding: '10px', flex: 1}}>
-              <Translate value="dropzone.info" style={{display: 'flex', height: 80, whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
+            <Dropzone onDrop={this.onDrop} style={{height: 130, textAlign: 'left', padding: '10px', flex: 1, cursor: 'pointer'}}>
+              <Typography variant="title" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'hidden'}}>
+              <Translate value="dropzone.title" />
+              </Typography>
+              <Typography style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto', marginTop: '1%'}}>
+                <Translate value="dropzone.info" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
+              </Typography>
             </Dropzone>
           </div>
           <Divider/>
