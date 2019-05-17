@@ -66,7 +66,7 @@ class QueryResultOptionDialog extends React.Component {
 
   renderAlgorithmSelect = () => {
     return (
-      <div>
+      <div style={{overflowY: 'auto'}}>
         <InputLabel shrink>
           {I18n.t('form.documentSearch.algorithm.label')}
         </InputLabel>
@@ -171,8 +171,8 @@ class QueryResultOptionDialog extends React.Component {
           fullScreen={fullScreen}
           open={this.state.open}
           onClose={this.handleClose}
+          PaperProps={{style:{flexDirection: 'row'}}}
           aria-labelledby="responsive-dialog-title">
-
           <DialogTitle style={this.showOverflow} id="responsive-dialog-title"><Translate value="dialog.changeAlgorithm.title"/></DialogTitle>
           <DialogContent style={this.showOverflow}>{this.renderAlgorithmSelect()}</DialogContent>
 

@@ -80,10 +80,10 @@ class DocumentListItem extends Component {
 
   renderLink () {
     return (
-      <div style={{marginTop: '9px', display: 'flex', marginBottom: '4px'}}>
-        <Button style={{minWidth: '20%', minHeight: '20%', padding: '4px 0px', marginBottom: '5px'}}
+      <div style={{marginTop: 'auto', display: 'flex', marginBottom: 'auto'}}>
+        <Button style={{minWidth: '10%', minHeight: '10%', padding: '4px 0px'}}
                 href={this.props.document.sf_link} target="_blank">
-          <img style={{height: '40px', width: '40px'}}
+          <img style={{height: '40px', width: '40px', maxWidth: '5vw', maxHeight: '5vw'}}
                src={sfLogo} alt='Data finlex'/>
         </Button>
       </div>
@@ -110,8 +110,8 @@ class DocumentListItem extends Component {
 
   renderGetSimilar () {
     return (
-      <div style={{padding: '5px', maxWidth: '20%', minWidth: '10%', display: 'flex', marginTop: '5px', marginBottom: '4px'}}>
-        <Button style={{padding: '14px 16px'}}
+      <div style={{padding: '5px', maxWidth: '20%', minWidth: '10%', display: 'flex', marginTop: 'auto', marginBottom: 'auto'}}>
+        <Button style={{padding: '2vh 2vh', fontSize: '1.5vh'}}
                 onClick={() => this.props.getSimilar(this.props.document, this.props.similarityAlgorithm,
                                                      this.props.resultSize)}>
           <Translate value="document.getSimilar"/>

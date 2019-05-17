@@ -29,7 +29,7 @@ function mapDispatchToProps (dispatch) {
 
 class QueryResult extends Component {
   componentDidUpdate () {
-    const listNode = findDOMNode(this.refs.list)
+    const listNode = findDOMNode(this.refs.listContainer)
     listNode && listNode.scrollIntoView()
   }
 
@@ -72,15 +72,15 @@ class QueryResult extends Component {
 
   renderResult = () => {
     return (
-      <Paper style={{padding: '10px', margin: '20px', maxHeight: 'none'}}>
+      <Paper style={{padding: '0.5vw', margin: '1vw', maxHeight: 'none'}}>
         <div style={{display: 'flex'}}>
           <Typography variant='title' style={{padding: '20px', flexGrow: 1}}><Translate
             value="document.mostSimilar"/></Typography>
           <QueryResultOptionDialog/>
         </div>
         <Divider/>
-        <div className="flex-row container-100">
-          <div style={{minWidth: '5%', maxWidth: '30%', display: 'flex'}}>
+        <div ref='listContainer' className="result-list-container container-100">
+          <div style={{minWidth: '5%', maxWidth: '100%', display: 'flex'}}>
           {this.state.showQueryDocument ?
             this.renderQueryDocument(this.props.queryDocument)
             :
@@ -89,7 +89,7 @@ class QueryResult extends Component {
               <Translate value="document.showQuery"/>
             </Button>}
           </div>
-          <div ref={'list'} style={{flex: '1 1 auto', maxWidth: '100%', minWidth: '30%', width: '60%'} }>
+          <div className="result-list" style={{flex: '1 1 auto', maxWidth: '100%', minWidth: '70%'} }>
             <DocumentList documents={this.filterDocumentList(this.props.similarDocuments)}/>
           </div>
         </div>
