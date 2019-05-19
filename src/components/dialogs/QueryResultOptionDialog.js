@@ -156,7 +156,8 @@ class QueryResultOptionDialog extends React.Component {
 
   showOverflow = {
     overflow: 'visible',
-    padding: '12px'
+    padding: '12px',
+    width: '100%'
   }
 
   render () {
