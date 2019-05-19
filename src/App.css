@@ -216,6 +216,10 @@ body {
         flex-direction: column;
     }
 
+    .flex {
+        padding: 1vw;
+    }
+
     .result-list {
         width: 100%;
     }

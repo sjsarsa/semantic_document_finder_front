@@ -63,13 +63,14 @@ class DocumentListItem extends Component {
       <div className="flex" style={{width: '100%', minWidth: '60%'}}>
         <ExpansionPanel>
           <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon/>}>
+            expandIcon={<ExpandMoreIcon/>}
+            style={{padding: '2vw'}}>
             <Typography style={expansionClass}>{documentTitle}</Typography>
             <Typography style={{textAlign: 'right'}}>
               {similarityText + maxLengthText}
             </Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails style={{padding: '2vw'}}>
             <Typography dangerouslySetInnerHTML={{__html: this.props.document.xml}}
                         style={expansionClass}/>
           </ExpansionPanelDetails>
