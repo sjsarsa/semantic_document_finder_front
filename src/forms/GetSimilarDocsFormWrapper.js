@@ -28,7 +28,7 @@ class GetSimilarDocsFormWrapper extends Component {
 
   render () {
     return (
-      <div style={{textAlign: this.state.showForm ? 'right' : 'center', margin: '20px'}}>
+      <div style={{textAlign: this.state.showForm ? 'right' : 'center', margin: '2vw'}}>
         {this.state.showForm ?
         <GetSimilarDocsForm getSimilar={this.props.getSimilarDocs} toggleShowForm={this.toggleShowForm}/>
         :

@@ -32,34 +32,35 @@ class NavBar extends React.Component {
 
   render () {
     return (
-      <div className="flex-grow text-left">
+      <div className="text-left">
         <AppBar position="static">
           <Toolbar>
             <img src={sfLogo} style={{height: '60px', marginRight: '20px'}} alt="logo"/>
-            <Typography className="flex" variant="title" color="inherit">
+            <Typography className="flex" style={{minWidth: '50%'}} variant="h5" color="inherit">
               <Translate value="navBar.title"/>
             </Typography>
-            <Link to={process.env.PUBLIC_URL + '/'} className="link-button">
-              <Button color="inherit"><Translate value="home"/></Button>
-            </Link>
-            <Link to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.documentSearch')} className="link-button">
-              <Button color="inherit">{I18n.t('navBar.documentSearch')}</Button>
-            </Link>
-            {this.props.loggedUser &&
-            <Link key="compareDocumentsLink" to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.compareDocuments')}
-                  className="link-button">
-              <Button color="inherit"><Translate value="document.compare"/></Button>
-            </Link>}
-            <Link to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.about')} className="link-button">
-              <Button color="inherit">{I18n.t('navBar.about')}</Button>
-            </Link>
-            {this.props.loggedUser ?
-              <LogoutButton key="logoutButton"/>
-              :
-              <Link to={process.env.PUBLIC_URL + '/login'} className={'link-button'}>
-                <Button color="inherit"><Translate value="login"/></Button>
-              </Link>}
-
+            <div style={{minWidth: '20%'}}>
+                <Link to={process.env.PUBLIC_URL + '/'} className="link-button">
+                  <Button color="inherit"><Translate value="home"/></Button>
+                </Link>
+                <Link to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.documentSearch')} className="link-button">
+                  <Button color="inherit">{I18n.t('navBar.documentSearch')}</Button>
+                </Link>
+                {this.props.loggedUser &&
+                <Link key="compareDocumentsLink" to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.compareDocuments')}
+                      className="link-button">
+                  <Button color="inherit"><Translate value="document.compare"/></Button>
+                </Link>}
+                <Link to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.about')} className="link-button">
+                  <Button color="inherit">{I18n.t('navBar.about')}</Button>
+                </Link>
+                {this.props.loggedUser ?
+                  <LogoutButton key="logoutButton"/>
+                  :
+                  <Link to={process.env.PUBLIC_URL + '/login'} className={'link-button'}>
+                    <Button color="inherit"><Translate value="login"/></Button>
+                  </Link>}
+            </div>
           </Toolbar>
         </AppBar>
       </div>

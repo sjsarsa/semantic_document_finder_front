@@ -28,7 +28,7 @@ class MainPage extends Component {
           A work in progress...<br/><br/>Please try the document search anyway or log in to rate search results.
         </Typography>
         {this.props.loggedUser &&
-        [<Typography variant="title" style={{'padding': '50px'}}>
+        [<Typography variant="h5" style={{'padding': '50px'}}>
           <Translate value="loggedIn.title" username={this.props.loggedUser}/>
         </Typography>,
         <Typography><Translate value="loggedIn.ratingInfo"/></Typography>]}

@@ -48,7 +48,7 @@ class GoldStandardPage extends Component {
   renderGoldStandard () {
     return (<Paper style={{margin: '20px', maxHeight: 'none'}}>
         <div style={{display: 'flex'}}>
-          <Typography variant="title" style={{textAlign: 'center', padding: '20px', flexGrow: '1'}}>
+          <Typography variant="h5" style={{textAlign: 'center', padding: '20px', flexGrow: '1'}}>
             <Translate value="page.goldStandard.documents"/>
           </Typography>
           <Button onClick={this.toggleShowGoldStandard}>
@@ -69,7 +69,7 @@ class GoldStandardPage extends Component {
     return (
       <div className="flex">
         <div className="page-title">
-          <Typography variant="title"><Translate value="page.goldStandard.title"/></Typography>
+          <Typography variant="h5"><Translate value="page.goldStandard.title"/></Typography>
           <Typography style={{padding: '20px'}}><Translate value="loggedIn.ratingInfo"/></Typography>
           <InfoDialog buttonTitle={I18n.t("infoDialog.similarity.button")}
                       info="similarity" contentKeys={["ratingDocuments", "ratingSubmission"]}/>

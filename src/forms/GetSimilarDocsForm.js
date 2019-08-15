@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import PropTypes from 'prop-types'
-import { Button, Paper, Divider } from '@material-ui/core'
+import { Button, Paper, Divider, Typography } from '@material-ui/core'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
 // local imports
 import TextField from '../components/material-ui-render-components/TextField'
 import { Translate, I18n } from 'react-redux-i18n'
@@ -65,27 +66,31 @@ class GetSimilarDocsForm extends React.Component {
                    disabled={true}/>
           </div>}
           <div style={{padding: '10px'}}>
-            <Field name="content"
-                   component={TextField}
-                   validate={this.contentRequired}
-                   placeholder={I18n.t('form.documentSearch.content.placeholder')}
-                   label={I18n.t('form.documentSearch.content.label')}
-                   multiline
-                   fullWidth={true}
-                   rows={7}/>
+              <Typography variant="h5" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'hidden', padding: '5px'}}>
+                  <Translate value="form.documentSearch.content.label" />
+              </Typography>
+              <Paper style={{padding: '10px'}}>
+                <Field name="content"
+                       component={TextField}
+                       validate={this.contentRequired}
+                       placeholder={I18n.t('form.documentSearch.content.placeholder')}
+                       label={I18n.t('form.documentSearch.content.label')}
+                       autosize
+                       rows='7'
+                       style= {{resize: 'none', border: 'none', width: '100%'}}/>
+              </Paper>
           </div>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+          <div style={{display: 'flex', flexDirection: 'column', padding: '10px'}}>
+              <Typography variant="h5" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'hidden', padding: '5px'}}>
+                  <Translate value="dropzone.title" />
+              </Typography>
               <FileUpload/>
-            </div>
-            <Divider style={{margin: '10px', backgroundColor: 'black'}}/>
             <div style={{display: 'flex', flexDirection: 'row'}}>
-              <div style={{display: 'flex', flex: 1}}>
+              <div style={{display: 'flex', flex: 1, padding: '10px'}}>
                 <Field
-                  style={{marginLeft: '20px', marginTop: '10px', minWidth: 120}}
+                  style={{marginLeft: '10px', marginTop: '10px', minWidth: 120}}
                   name={'algorithm'}
                   component={SelectField}
-                  fullWidth={true}
                   label={I18n.t('form.documentSearch.algorithm.label')}>
                   {this.props.algorithms.map(algorithm =>
                     <option value={algorithm} key={algorithm}>{I18n.t('algorithm.' + algorithm)}</option>
@@ -95,14 +100,13 @@ class GetSimilarDocsForm extends React.Component {
                   style={{marginLeft: '20px', marginTop: '10px', width: 100}}
                   name={'resultSize'}
                   component={TextField}
-                  fullWidth={true}
                   type="number"
-                  variant="filled"
-                  inputProps={{min: 0, step: 100}}
+                  inputprops={{min: 0, step: 100}}
                   label={I18n.t('form.documentSearch.resultSize.label')}
                   InputLabelProps={{
                     shrink: true,
-                  }}/>
+                  }}
+                  />
               </div>
               <div style={{display: 'flex'}}>
                 {!this.props.getExtractedTextInProgress &&

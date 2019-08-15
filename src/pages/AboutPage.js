@@ -6,13 +6,20 @@ import { Translate, I18n } from 'react-redux-i18n'
 import InfoPanel from '../components/InfoPanel'
 
 class AboutPage extends Component {
+
+    infoPanelStyle = {
+        padding: '2vw',
+        overflowY: 'hidden',
+        maxHeight: 'none'
+    }
+
   render () {
     return (
       <div className="flex" >
-        <Typography variant="title" style={{margin: '20px'}}><Translate value="about.title" /></Typography>
-        <InfoPanel buttonTitle={I18n.t("infoDialog.general.button")} info="general" contentKeys={["creator", "contact"]} style={{padding: '20px'}}/>
-        <InfoPanel buttonTitle={I18n.t("infoDialog.accounts.button")} info="accounts" contentKeys={["usage", "privacy"]} style={{padding: '20px'}}/>
-        <InfoPanel buttonTitle={I18n.t("infoDialog.sourceCode.button")} info="sourceCode" contentKeys={["frontend", "backend"]} style={{padding: '20px'}}/>
+        <Typography variant="h5" style={{margin: '2vw'}}><Translate value="about.title" /></Typography>
+        <InfoPanel buttonTitle={I18n.t("infoDialog.general.button")} info="general" contentKeys={["creator", "contact"]} style={this.infoPanelStyle}/>
+        <InfoPanel buttonTitle={I18n.t("infoDialog.accounts.button")} info="accounts" contentKeys={["usage", "privacy"]} style={this.infoPanelStyle}/>
+        <InfoPanel buttonTitle={I18n.t("infoDialog.sourceCode.button")} info="sourceCode" contentKeys={["frontend", "backend"]} style={this.infoPanelStyle}/>
       </div>
     )
   }

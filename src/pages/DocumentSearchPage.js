@@ -26,7 +26,7 @@ class DocumentSearchPage extends Component {
   render () {
     return (
       <div className="flex">
-        <Typography variant="title" className="page-title">
+        <Typography variant="h6" className="page-title">
           <Translate value="page.documentSearch.title"/>
         </Typography>
         <GetSimilarDocsFormWrapper/>

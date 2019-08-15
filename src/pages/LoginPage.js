@@ -30,7 +30,7 @@ class LoginPage extends React.Component {
         :
         <div className="flex">
           <div className="flex-column">
-            <Typography variant="title" className="page-title">
+            <Typography variant="h5" className="page-title">
               <Translate value="page.login.title"/>
             </Typography>
             <Typography className="page-title" style={{whiteSpace: 'pre-line'}}>
@@ -39,7 +39,7 @@ class LoginPage extends React.Component {
             {this.props.loginInProgress ? <DelayedCircularProgress/> : <LoginForm/>}
 
             <div style={{display: 'flex'}}>
-              <Typography variant="title" className="page-title">
+              <Typography variant="h5" className="page-title">
                 <Translate value="page.login.signin"/>
               </Typography>
               <SigninDialog/>

@@ -8,5 +8,13 @@ export default createMuiTheme({
     secondary: {
       main: '#f44336'
     }
+  },
+  overrides: {
+    Textarea: {
+        root: {
+            height: 'auto',
+            minHeight: '100px'
+        }
+    }
   }
 })

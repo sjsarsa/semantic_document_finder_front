@@ -12,7 +12,7 @@ import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-import reducers from './reducers/rootReducer'
+import createRootReducer from './reducers/rootReducer'
 import translations from './translations'
 import theme from './components/muiTheme'
 import { getAlgorithms } from './actions/queryActions'
@@ -24,7 +24,8 @@ const logger = createLogger({
 })
 
 const store = createStore(
-  connectRouter(history)(reducers),
+//  connectRouter(history)(reducers),
+  createRootReducer(history),
   composeEnhancer(
     applyMiddleware(
       routerMiddleware(history),

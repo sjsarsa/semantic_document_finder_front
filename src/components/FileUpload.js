@@ -36,7 +36,7 @@ class FileUpload extends React.Component {
     fileType: 'txt'
   }
 
-  onDrop = (acceptedFiles, rejectedFiles) => {
+  onDrop = (acceptedFiles) => {
     // Only one file can be accepted at once
     const file = acceptedFiles[0]
     this.setState({file: file})
@@ -46,16 +46,17 @@ class FileUpload extends React.Component {
   render () {
     const file = this.state.file
     return (
-      <div style={{display: 'flex', flexDirection: 'row', flex: '1 0', marginTop: '10px'}}>
-        <Paper style={{flexDirection: 'column', flex: '1 0', margin: '10px'}}>
+      <div style={{display: 'flex', flexDirection: 'row', flex: '1 0'}}>
+        <Paper style={{flexDirection: 'column', flex: '1 0'}}>
           <div style={{display: 'flex', flexDirection: 'row'}}>
-            <Dropzone onDrop={this.onDrop} style={{height: 130, textAlign: 'left', padding: '10px', flex: 1, cursor: 'pointer'}}>
-              <Typography variant="title" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'hidden'}}>
-              <Translate value="dropzone.title" />
-              </Typography>
-              <Typography style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto', marginTop: '1%'}}>
+            <Dropzone onDrop={this.ondrop} style={{textAlign: 'left', padding: '10px', flex: 1, cursor: 'pointer'}}>
+            {({getRootProps, getInputProps}) => (
+            <div style={{padding: '10px'}}>
+                <input {...getInputProps()}/>
+              <Typography style={{textAlign: 'left', display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto', minWidth: '300px'}}>
                 <Translate value="dropzone.info" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
               </Typography>
+              </div>)}
             </Dropzone>
           </div>
           <Divider/>

@@ -40,7 +40,7 @@ class InfoDialog extends React.Component {
   render () {
     const buttonTitle = this.props.buttonTitle || this.props.info
     return (
-      <div className="flex" style={{width: '100%'}}>
+      <div className="flex" style={this.props.style}>
         <ExpansionPanel>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon/>}>

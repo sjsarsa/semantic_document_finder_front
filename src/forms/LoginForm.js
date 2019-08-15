@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
     return (
       <div style={{textAlign: 'right', padding: '20px', justifyContent: 'center'}}>
         <Paper style={{padding: '30px'}}>
-          <Typography variant='title' style={{textAlign: 'left', marginBottom: '10px'}}>
+          <Typography variant='h5' style={{textAlign: 'left', marginBottom: '10px'}}>
             <Translate value='login'/>
           </Typography>
           <Grow in={this.props.loginError !== undefined}>

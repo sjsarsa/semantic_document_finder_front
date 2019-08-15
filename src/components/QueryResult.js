@@ -74,7 +74,7 @@ class QueryResult extends Component {
     return (
       <Paper style={{padding: '0.5vw', margin: '1vw', maxHeight: 'none'}}>
         <div style={{display: 'flex'}}>
-          <Typography variant='title' style={{padding: '20px', flexGrow: 1}}><Translate
+          <Typography variant='h5' style={{padding: '20px', flexGrow: 1}}><Translate
             value="document.mostSimilar"/></Typography>
           <QueryResultOptionDialog/>
         </div>

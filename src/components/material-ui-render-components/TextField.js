@@ -1,22 +1,19 @@
-import TextField from '@material-ui/core/TextField'
+import { TextField } from '@material-ui/core'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import React from 'react'
 import '../../App.css'
 
 const renderTextField = (
   {
     input,
-    label,
-    fullWidth,
+    autosize,
     meta: {touched, error},
     ...custom
   }) => (
   <div>
-    <TextField
-      label={label}
-      fullWidth={fullWidth}
-      {...input}
-      {...custom}
-    />
+    {autosize ? <TextareaAutosize {...input} {...custom}/>
+        : <TextField {...input} {...custom}/>
+    }
     {touched && error && <p className="error" color="red">{error}</p>}
   </div>
 )

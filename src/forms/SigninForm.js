@@ -78,7 +78,7 @@ class SigninForm extends React.Component {
           <Button type="submit" style={this.buttonStyle}><Translate value="form.submit"/></Button>
         </form>
         {this.props.signinSuccess &&
-        <Typography variant='title' style={{textAlign: 'center', marginBottom: '10px', color: 'green'}}>
+        <Typography variant='h5' style={{textAlign: 'center', marginBottom: '10px', color: 'green'}}>
           {this.props.signinSuccess}
         </Typography>}
       </div>
