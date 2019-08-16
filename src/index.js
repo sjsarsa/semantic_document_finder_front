@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { applyMiddleware, compose, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { connectRouter, routerMiddleware } from 'connected-react-router'
+import { routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import { createLogger }from 'redux-logger'
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n'
@@ -24,7 +24,6 @@ const logger = createLogger({
 })
 
 const store = createStore(
-//  connectRouter(history)(reducers),
   createRootReducer(history),
   composeEnhancer(
     applyMiddleware(

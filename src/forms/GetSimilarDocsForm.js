@@ -2,8 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import PropTypes from 'prop-types'
-import { Button, Paper, Divider, Typography } from '@material-ui/core'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { Button, Paper, Typography } from '@material-ui/core'
 // local imports
 import TextField from '../components/material-ui-render-components/TextField'
 import { Translate, I18n } from 'react-redux-i18n'
@@ -101,7 +100,7 @@ class GetSimilarDocsForm extends React.Component {
                   name={'resultSize'}
                   component={TextField}
                   type="number"
-                  inputprops={{min: 0, step: 100}}
+                  inputProps={{min: 0, step: 100}}
                   label={I18n.t('form.documentSearch.resultSize.label')}
                   InputLabelProps={{
                     shrink: true,

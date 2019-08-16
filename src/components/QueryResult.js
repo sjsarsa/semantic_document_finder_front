@@ -45,7 +45,7 @@ class QueryResult extends Component {
 
   renderQueryDocument = (queryDocument) => {
     return (
-      <Paper style={{marginTop: '20px', marginBottom: '20px'}}>
+      <Paper style={{margin: '20px'}}>
         <Button style={{float: 'right'}} onClick={this.toggleShowQueryDocument} autoFocus>
           <Translate value="hide"/>
         </Button>
@@ -74,8 +74,9 @@ class QueryResult extends Component {
     return (
       <Paper style={{padding: '0.5vw', margin: '1vw', maxHeight: 'none'}}>
         <div style={{display: 'flex'}}>
-          <Typography variant='h5' style={{padding: '20px', flexGrow: 1}}><Translate
-            value="document.mostSimilar"/></Typography>
+          <Typography variant='h5' style={{padding: '20px', flexGrow: 1}}>
+            <Translate value="document.mostSimilar"/>
+          </Typography>
           <QueryResultOptionDialog/>
         </div>
         <Divider/>

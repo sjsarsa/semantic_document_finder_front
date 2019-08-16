@@ -37,7 +37,7 @@ export function queryReducer (state = initialState, action) {
       })
     case SET_RESULT_SIZE:
       return Object.assign({}, state, {
-        resultSize: action.resultSize
+        resultSize: Number(action.resultSize)
       })
     case SET_ALGORITHMS:
       return Object.assign({}, state, {

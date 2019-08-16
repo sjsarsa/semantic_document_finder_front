@@ -85,11 +85,9 @@ class QueryResultOptionDialog extends React.Component {
           {I18n.t('form.documentSearch.resultSize.label')}
         </InputLabel>
         <TextField
-          fullWidth={true}
           value={this.state.resultSize}
           onChange={event => this.setState({resultSize: event.target.value})}
           type="number"
-          variant="filled"
           inputProps={{min: 0, step: 100}}/>
       </div>
     )
@@ -112,7 +110,6 @@ class QueryResultOptionDialog extends React.Component {
         <NativeSelect
           style={{marginBottom: '20px'}}
           name={'court'}
-          fullWidth={true}
           value={this.state.filters.court}
           label={I18n.t('form.documentSearch.filter.court')}
           onChange={this.handleFilterChange('court')}>
@@ -124,11 +121,9 @@ class QueryResultOptionDialog extends React.Component {
           {I18n.t('form.documentSearch.filter.maxLength')}
         </InputLabel>
         <TextField
-          fullWidth={true}
           value={this.state.filters.maxLength}
           onChange={this.handleFilterChange('maxLength')}
           type="number"
-          variant="filled"
           inputProps={{min: 0, step: 100}}
         />
       </div>
