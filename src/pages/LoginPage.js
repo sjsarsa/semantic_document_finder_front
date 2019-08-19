@@ -28,24 +28,23 @@ class LoginPage extends React.Component {
       this.props.loggedUser ?
         <Redirect to={process.env.PUBLIC_URL + "/compare-documents"}/>
         :
-        <div className="flex">
-          <div className="flex-column">
+          <div className="flex flex-column" style={{flexWrap: 'nowrap'}}>
             <Typography variant="h5" className="page-title">
               <Translate value="page.login.title"/>
             </Typography>
             <Typography className="page-title" style={{whiteSpace: 'pre-line'}}>
               <Translate value="page.login.info"/>
             </Typography>
-            {this.props.loginInProgress ? <DelayedCircularProgress/> : <LoginForm/>}
-
-            <div style={{display: 'flex'}}>
-              <Typography variant="h5" className="page-title">
+            <div style={{width: '100%'}}>
+                {this.props.loginInProgress ? <DelayedCircularProgress/> : <LoginForm/>}
+            </div>
+            <div style={{display: 'flex', padding: '1vw'}}>
+              <Typography variant="h6" className="page-title">
                 <Translate value="page.login.signin"/>
               </Typography>
               <SigninDialog/>
             </div>
           </div>
-        </div>
     )
   }
 }

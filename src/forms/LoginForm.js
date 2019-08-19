@@ -52,8 +52,8 @@ class LoginForm extends React.Component {
   render () {
     const {handleSubmit} = this.props
     return (
-      <div style={{textAlign: 'right', padding: '20px', justifyContent: 'center'}}>
-        <Paper style={{padding: '30px'}}>
+      <div style={{textAlign: 'right', padding: '2vw', justifyContent: 'center'}}>
+        <Paper style={{padding: '30px', maxWidth: '800px'}}>
           <Typography variant='h5' style={{textAlign: 'left', marginBottom: '10px'}}>
             <Translate value='login'/>
           </Typography>
