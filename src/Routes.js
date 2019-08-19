@@ -15,7 +15,7 @@ const routes = (
   <div className='App'>
     <NavBar/>
     <Switch>
-      <Route exact path={process.env.PUBLIC_URL + "/"} component={MainPage}/>
+      <Route exact path={process.env.PUBLIC_URL + "/"} component={DocumentSearchPage}/>
       <Route path={process.env.PUBLIC_URL + "/login"} component={LoginPage}/>
       <Route path={process.env.PUBLIC_URL + "/about"} component={AboutPage}/>
       {/* Options need to be the same as navigation.compareDocuments in translations.js */}

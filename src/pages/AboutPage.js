@@ -8,7 +8,7 @@ import InfoPanel from '../components/InfoPanel'
 class AboutPage extends Component {
 
     infoPanelStyle = {
-        padding: '2vw',
+        padding: '1vw',
         overflowY: 'hidden',
         maxHeight: 'none'
     }
@@ -16,7 +16,7 @@ class AboutPage extends Component {
   render () {
     return (
       <div className="flex" >
-        <Typography variant="h5" style={{margin: '2vw'}}><Translate value="about.title" /></Typography>
+        <Typography variant="h5" style={{margin: '1vw'}}><Translate value="about.title" /></Typography>
         <InfoPanel buttonTitle={I18n.t("infoDialog.general.button")} info="general" contentKeys={["creator", "contact"]} style={this.infoPanelStyle}/>
         <InfoPanel buttonTitle={I18n.t("infoDialog.accounts.button")} info="accounts" contentKeys={["usage", "privacy"]} style={this.infoPanelStyle}/>
         <InfoPanel buttonTitle={I18n.t("infoDialog.sourceCode.button")} info="sourceCode" contentKeys={["frontend", "backend"]} style={this.infoPanelStyle}/>

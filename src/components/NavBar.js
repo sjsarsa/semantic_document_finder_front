@@ -41,9 +41,6 @@ class NavBar extends React.Component {
             </Typography>
             <div style={{minWidth: '20%'}}>
                 <Link to={process.env.PUBLIC_URL + '/'} className="link-button">
-                  <Button color="inherit"><Translate value="home"/></Button>
-                </Link>
-                <Link to={process.env.PUBLIC_URL + '/' + I18n.t('navigation.documentSearch')} className="link-button">
                   <Button color="inherit">{I18n.t('navBar.documentSearch')}</Button>
                 </Link>
                 {this.props.loggedUser &&
