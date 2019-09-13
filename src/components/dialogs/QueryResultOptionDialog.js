@@ -108,7 +108,7 @@ class QueryResultOptionDialog extends React.Component {
           {I18n.t('form.documentSearch.filter.court')}
         </InputLabel>
         <NativeSelect
-          style={{marginBottom: '20px'}}
+          style={{marginBottom: '2vh'}}
           name={'court'}
           value={this.state.filters.court}
           label={I18n.t('form.documentSearch.filter.court')}
@@ -121,10 +121,20 @@ class QueryResultOptionDialog extends React.Component {
           {I18n.t('form.documentSearch.filter.maxLength')}
         </InputLabel>
         <TextField
+          style={{marginBottom: '2vh'}}
           value={this.state.filters.maxLength}
           onChange={this.handleFilterChange('maxLength')}
           type="number"
           inputProps={{min: 0, step: 100}}
+        />
+        <InputLabel>
+          {I18n.t('form.documentSearch.filter.contains.label')}
+        </InputLabel>
+        <TextField
+            value={this.state.filters.contains}
+            onChange={this.handleFilterChange('contains')}
+            placeholder={I18n.t('form.documentSearch.filter.contains.placeholder')}
+            fullWidth
         />
       </div>
     )
@@ -165,6 +175,7 @@ class QueryResultOptionDialog extends React.Component {
         </IconButton>
         <Dialog
           fullScreen={fullScreen}
+          maxWidth='md'
           open={this.state.open}
           onClose={this.handleClose}
           PaperProps={{style:{flexDirection: 'row'}}}

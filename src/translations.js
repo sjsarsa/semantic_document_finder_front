@@ -28,7 +28,11 @@ export default {
         filter: {
           court: 'Court',
           maxLength: 'Maximum word count',
-          containsPhrase: 'Containing phrase'
+          contains: {
+            label: 'Containing word or phrase',
+            placeholder: 'Multiple phrases separated by a comma: auto,liikenteen vaarantaminen'
+          }
+
         }
       },
       submit: 'Submit',

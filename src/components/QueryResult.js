@@ -63,8 +63,14 @@ class QueryResult extends Component {
   filterDocumentList = (documents) => {
     const court = this.props.queryFilters.court
     const maxLength = this.props.queryFilters.maxLength
+    const contains = this.props.queryFilters.contains
     let filteredDocuments = court? R.filter(x => x.court === court, documents) : documents
-    filteredDocuments = maxLength? R.filter(x => x.word_count <= maxLength, documents) : filteredDocuments
+    filteredDocuments = maxLength? R.filter(x => x.word_count <= maxLength, filteredDocuments) : filteredDocuments
+    filteredDocuments = contains? R.filter(x => {
+        const doctext = R.replace(/<[^>]*>/g, ' ', x.xml)
+        const filterPhrases = contains.split(',').map(x => x.trim())
+        return R.all(filterPhrase => doctext.includes(filterPhrase))(filterPhrases)
+    }, filteredDocuments): filteredDocuments
 
     return filteredDocuments
   }
