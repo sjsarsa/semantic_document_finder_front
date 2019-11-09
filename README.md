@@ -1,4 +1,4 @@
-# This is the frontend for [Semantic Finlex document finder](data.finlex.fi)
+# This is the frontend for [Semantic Finlex document finder](https://data.finlex.fi/document-finder)
  - Backend of the project is not yet public
 
 ## Requirements
