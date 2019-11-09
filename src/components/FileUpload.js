@@ -51,11 +51,11 @@ class FileUpload extends React.Component {
           <div style={{display: 'flex', flexDirection: 'row'}}>
             <Dropzone onDrop={this.ondrop} style={{textAlign: 'left', padding: '10px', flex: 1, cursor: 'pointer'}}>
             {({getRootProps, getInputProps}) => (
-            <div style={{padding: '10px'}}>
+              <div style={{padding: '10px'}} {...getRootProps()}>
                 <input {...getInputProps()}/>
-              <Typography style={{textAlign: 'left', display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto', minWidth: '300px'}}>
-                <Translate value="dropzone.info" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
-              </Typography>
+                <Typography style={{textAlign: 'left', display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto', minWidth: '300px'}}>
+                  <Translate value="dropzone.info" style={{display: 'flex', whiteSpace: 'pre-wrap', overflowY: 'auto'}}/>
+                </Typography>
               </div>)}
             </Dropzone>
           </div>
